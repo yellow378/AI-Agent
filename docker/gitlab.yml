@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  web:
+    image: 'gitlab/gitlab-ce:15.5.5-ce.0'
+    restart: always
+    hostname: '192.168.0.59'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://192.168.0.59'
+    ports:
+      - '19980:80'
+      - '19443:443'
+      - '19922:22'
+    volumes:
+      - './config:/etc/gitlab'
+      - './logs:/var/log/gitlab'
+      - './data:/var/opt/gitlab'
+    shm_size: '256m'
