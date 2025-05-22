@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/hello")
 public class HelloController {
     @Autowired
-    private ChatModel ollamaChatModel;
+    private ChatModel chatModel;
 
     @Autowired
     private GitlabService gitlabService;
@@ -28,13 +28,15 @@ public class HelloController {
 
     @GetMapping(value = "/ollama/{value}")
     public String hello3(@PathVariable String value){
-        return ollamaChatModel.call(new Prompt(value)).getResult().getOutput().getText();
+        return chatModel.call(new Prompt(value)).getResult().getOutput().getText();
     }
 
     //GitLab
     @GetMapping("/gitlab/projects")
     public String getProjects() throws GitLabApiException {
-        return gitlabService.getProjects().toString();
+        String projects = gitlabService.getProjects().toString();
+        return chatModel.call(new Prompt("我的gitlab仓库中都有什么? \n\n"+projects)).getResult().getOutput().getText();
     }
+
 
 }

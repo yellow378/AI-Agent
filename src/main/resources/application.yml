@@ -5,10 +5,11 @@ spring:
   application:
     name: ai-agent
   ai:
-    ollama:
-      base-url: http://192.168.0.14:11434
+    dashscope:
+      api-key: sk-fbd94db382aa4b32b582cf5bee6d97e7
       chat:
-        model: qwen3:32b
+        options:
+          model: qwen-turbo-0624
 
 gitlab:
   url: https://192.168.0.59:19443/
