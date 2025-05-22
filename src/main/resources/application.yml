@@ -1,0 +1,9 @@
+server:
+  port:
+    8888
+spring:
+  application:
+    name: ai-agent
+  ai:
+    dashscope:
+      api-key: sk-fbd94db382aa4b32b582cf5bee6d97e7
