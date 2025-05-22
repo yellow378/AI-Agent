@@ -5,5 +5,10 @@ spring:
   application:
     name: ai-agent
   ai:
-    dashscope:
-      api-key: sk-fbd94db382aa4b32b582cf5bee6d97e7
+    ollama:
+      base-url: http://192.168.0.14:11434
+      chat:
+        model: qwen3:32b
+
+gitlab:
+  url: https://192.168.0.59:19443/
