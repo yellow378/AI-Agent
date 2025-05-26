@@ -3,6 +3,7 @@ package org.lwx.aiagent.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
+import org.gitlab4j.api.models.Commit;
 import org.gitlab4j.api.models.Project;
 import org.lwx.aiagent.service.GitlabService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,12 @@ public class GitlabServiceImpl implements GitlabService {
         log.info("getProjects");
         List<Project> projects = gitLabApi.getProjectApi().getProjects();
         return projects;
+    }
+
+    @Override
+    public List<Commit> getProjectCommits(Long projectId) throws GitLabApiException {
+        log.info("getProject Commits, projectId: {}", projectId);
+        List<Commit> commits = gitLabApi.getCommitsApi().getCommits(projectId);
+        return commits;
     }
 }
