@@ -7,6 +7,7 @@ SpringCloud ai alibaba
 
 ### 1. Gitlab
 1. 拉取项目  [ ] 
+    1. 项目保存在哪里?
 2. 全量向量化
 3. 查找相似段落
 4. diff向量化并替换
